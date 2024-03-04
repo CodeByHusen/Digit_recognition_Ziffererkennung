@@ -1,0 +1,108 @@
+\doxysection{sisd Class Reference}
+\label{classsisd}\index{sisd@{sisd}}
+
+
+{\ttfamily \#include $<$sisd.\+h$>$}
+
+Inheritance diagram for sisd\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classsisd}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ think} () override
+\item 
+\textbf{ sisd} (int N\+\_\+\+Layers, int N\+\_\+\+Inputs, int N\+\_\+\+Hiddens, int N\+\_\+\+Outputs)
+\item 
+void \textbf{ learn} (float learn\+\_\+\+Rate, int batch\+\_\+\+Size) override
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions inherited from \textbf{ Network}}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Network} ()=default
+\item 
+\textbf{ Network} (int N\+\_\+\+Layers, int N\+\_\+\+Inputs, int N\+\_\+\+Hiddens, int N\+\_\+\+Outputs)
+\item 
+\textbf{ $\sim$\+Network} ()
+\item 
+void \textbf{ set\+\_\+\+Input\+\_\+\+Value} (float input\+\_\+\+Value, int index)
+\begin{DoxyCompactList}\small\item\em set the input value for a specific neuron in the network before the network is activated \end{DoxyCompactList}\item 
+virtual void \textbf{ think} ()=0
+\item 
+float \textbf{ sigmod} (float x)
+\item 
+float \textbf{ d\+SigmoddX} (float x)
+\item 
+void \textbf{ calculate\+\_\+\+Cost} (int real\+\_\+\+Answer)
+\begin{DoxyCompactList}\small\item\em activate the neural network and calculate the outputs for all neurons \end{DoxyCompactList}\item 
+virtual void \textbf{ learn} (float learn\+\_\+\+Rate, int batch\+\_\+\+Size)=0
+\item 
+void \textbf{ apply\+\_\+\+Learned} ()
+\begin{DoxyCompactList}\small\item\em reset all the layers in the Layer\+\_\+\+List data member of the \doxyref{Network}{p.}{class_network} object starting from the second layer (index 1) and going up to the last layer (n\+\_\+\+Layers -\/ 1) \end{DoxyCompactList}\item 
+float \textbf{ get\+Cost} ()
+\item 
+int \textbf{ is\+Correct} ()
+\item 
+int \textbf{ get\+Answer} ()
+\item 
+int \textbf{ get\+\_\+\+Hidden\+\_\+\+Count} ()
+\item 
+float \textbf{ transform\+\_\+\+Prime} (float input\+Value)
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+\doxysubsubsection*{Protected Attributes inherited from \textbf{ Network}}
+\begin{DoxyCompactItemize}
+\item 
+int \textbf{ n\+\_\+\+Layers} \{\}
+\item 
+\textbf{ Layer} $\ast$$\ast$ \textbf{ layer\+\_\+\+List}
+\item 
+int \textbf{ n\+\_\+\+Outputs} \{\}
+\item 
+int \textbf{ n\+\_\+\+Hiddens} \{\}
+\item 
+float $\ast$ \textbf{ correct\+\_\+\+Answer}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\label{classsisd_a8da64f786ef896e6fcab6070898caa17}} 
+\index{sisd@{sisd}!sisd@{sisd}}
+\index{sisd@{sisd}!sisd@{sisd}}
+\doxysubsubsection{sisd()}
+{\footnotesize\ttfamily sisd\+::sisd (\begin{DoxyParamCaption}\item[{int}]{N\+\_\+\+Layers,  }\item[{int}]{N\+\_\+\+Inputs,  }\item[{int}]{N\+\_\+\+Hiddens,  }\item[{int}]{N\+\_\+\+Outputs }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\label{classsisd_a23aff4c88151f0489033a71681d3f809}} 
+\index{sisd@{sisd}!learn@{learn}}
+\index{learn@{learn}!sisd@{sisd}}
+\doxysubsubsection{learn()}
+{\footnotesize\ttfamily void sisd\+::learn (\begin{DoxyParamCaption}\item[{float}]{learn\+\_\+\+Rate,  }\item[{int}]{batch\+\_\+\+Size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \textbf{ Network} \doxyref{}{p.}{class_network_a7d210da71d69ba03bd02f4b19eecc5ec}.
+
+\mbox{\label{classsisd_afa5252e9a6a95961946dd377fdd18aac}} 
+\index{sisd@{sisd}!think@{think}}
+\index{think@{think}!sisd@{sisd}}
+\doxysubsubsection{think()}
+{\footnotesize\ttfamily void sisd\+::think (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+The loop calls the \char`\"{}fire\char`\"{} method for each layer, passing the previous layer as a parameter.
+
+store the previous layer in a pointer p
+
+Implements \textbf{ Network} \doxyref{}{p.}{class_network_a4dc109a7dee5d42bafc1b973cf5bc2ae}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\textbf{ sisd.\+h}\item 
+\textbf{ sisd.\+cpp}\end{DoxyCompactItemize}

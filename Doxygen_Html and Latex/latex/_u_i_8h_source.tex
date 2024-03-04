@@ -1,0 +1,49 @@
+\doxysection{UI.\+h}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <sstream>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}network.h"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}reader.h"{}}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{class\ }UI\{}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00013\ \ \ \ \ UI()\{\}}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keywordtype}{void}\ read\_file(Reader\&\ images,\ Reader\ \&lables,\ Reader\ \&testImages,\ Reader\ \&testLabels);}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordtype}{int}\ read\_valid\_int\_input(\textcolor{keywordtype}{int}\ small\_than,\ \textcolor{keywordtype}{int}\ bigger\_than);}
+\DoxyCodeLine{00017\ \ \ \ \ Network\ *createNetwork(\textcolor{keywordtype}{int}\ x);}
+\DoxyCodeLine{00018\ \ \ \ \ Network\ *\ wich\_construktor(\textcolor{keywordtype}{int}\ construktor\_num,\ \textcolor{keywordtype}{int}\ hidden\_num);}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{void}\ input\_training\_parameters(\textcolor{keywordtype}{int}\&\ mini\_batch\_size,\textcolor{keywordtype}{int}\&\ number\_of\_batches,\ \textcolor{keywordtype}{float}\&\ learning\_rate);}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{void}\ training(\textcolor{keywordtype}{int}\ test\_num,\ \textcolor{keywordtype}{int}\ mini\_batch\_size,\ \textcolor{keywordtype}{float}\ learning\_rate,\ Network\&\ myNetwork,\ Reader\ images,\ Reader\ labels,\ \textcolor{keywordtype}{int}\ time\_ortest,\ \textcolor{keywordtype}{int}\ which\_file\ =\ 0);}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{void}\ netzwerk\_result\_check(Reader\ testImages,\ Reader\ testLabels,\ Network\ \&myNetwork,\ \textcolor{keywordtype}{int}\ time\_ortest,\ \textcolor{keywordtype}{int}\ whichfile\ =0);}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \};}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{comment}{//at\ can\ cast\ a\ string\ (std::string)\ to\ any\ type\ (T).\ The\ function\ uses\ a\ std::istringstream\ to\ parse\ the\ string\ as\ T.\ If\ the\ parsing\ succeeds,\ the\ resulting\ value\ is\ returned}}
+\DoxyCodeLine{00030\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>\ T\ from\_string(\textcolor{keyword}{const}\ std::string\&\ s)}
+\DoxyCodeLine{00031\ \{}
+\DoxyCodeLine{00032\ \ \ \ \ std::istringstream\ stream\ (s);}
+\DoxyCodeLine{00033\ \ \ \ \ T\ t;}
+\DoxyCodeLine{00034\ \ \ \ \ stream\ >>\ t;}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordflow}{return}\ t;}
+\DoxyCodeLine{00036\ \}}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#ifndef\ PROJECT\_UI\_H}}
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#define\ PROJECT\_UI\_H}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//PROJECT\_UI\_H}}
+
+\end{DoxyCode}

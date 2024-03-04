@@ -1,0 +1,222 @@
+\doxysection{Network Class Reference}
+\label{class_network}\index{Network@{Network}}
+
+
+{\ttfamily \#include $<$network.\+h$>$}
+
+Inheritance diagram for Network\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_network}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Network} ()=default
+\item 
+\textbf{ Network} (int N\+\_\+\+Layers, int N\+\_\+\+Inputs, int N\+\_\+\+Hiddens, int N\+\_\+\+Outputs)
+\item 
+\textbf{ $\sim$\+Network} ()
+\item 
+void \textbf{ set\+\_\+\+Input\+\_\+\+Value} (float input\+\_\+\+Value, int index)
+\begin{DoxyCompactList}\small\item\em set the input value for a specific neuron in the network before the network is activated \end{DoxyCompactList}\item 
+virtual void \textbf{ think} ()=0
+\item 
+float \textbf{ sigmod} (float x)
+\item 
+float \textbf{ d\+SigmoddX} (float x)
+\item 
+void \textbf{ calculate\+\_\+\+Cost} (int real\+\_\+\+Answer)
+\begin{DoxyCompactList}\small\item\em activate the neural network and calculate the outputs for all neurons \end{DoxyCompactList}\item 
+virtual void \textbf{ learn} (float learn\+\_\+\+Rate, int batch\+\_\+\+Size)=0
+\item 
+void \textbf{ apply\+\_\+\+Learned} ()
+\begin{DoxyCompactList}\small\item\em reset all the layers in the Layer\+\_\+\+List data member of the \doxyref{Network}{p.}{class_network} object starting from the second layer (index 1) and going up to the last layer (n\+\_\+\+Layers -\/ 1) \end{DoxyCompactList}\item 
+float \textbf{ get\+Cost} ()
+\item 
+int \textbf{ is\+Correct} ()
+\item 
+int \textbf{ get\+Answer} ()
+\item 
+int \textbf{ get\+\_\+\+Hidden\+\_\+\+Count} ()
+\item 
+float \textbf{ transform\+\_\+\+Prime} (float input\+Value)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \textbf{ n\+\_\+\+Layers} \{\}
+\item 
+\textbf{ Layer} $\ast$$\ast$ \textbf{ layer\+\_\+\+List}
+\item 
+int \textbf{ n\+\_\+\+Outputs} \{\}
+\item 
+int \textbf{ n\+\_\+\+Hiddens} \{\}
+\item 
+float $\ast$ \textbf{ correct\+\_\+\+Answer}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\label{class_network_a22366a210c0fb05448d1802a0e98452a}} 
+\index{Network@{Network}!Network@{Network}}
+\index{Network@{Network}!Network@{Network}}
+\doxysubsubsection{Network()\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Network\+::\+Network (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+\mbox{\label{class_network_a4f01b51e5419b72aa1a972e3ffcc4700}} 
+\index{Network@{Network}!Network@{Network}}
+\index{Network@{Network}!Network@{Network}}
+\doxysubsubsection{Network()\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Network\+::\+Network (\begin{DoxyParamCaption}\item[{int}]{N\+\_\+\+Layers,  }\item[{int}]{N\+\_\+\+Inputs,  }\item[{int}]{N\+\_\+\+Hiddens,  }\item[{int}]{N\+\_\+\+Outputs }\end{DoxyParamCaption})}
+
+N\+\_\+\+Layers\+:indicates the number of layers in the network. N\+\_\+\+Input\+: indicates the number of input neurons. N\+\_\+\+Hiddens\+:indicates the number of hidden neurons. N\+\_\+\+Outputs\+:specifies the number of output neurons Der letzte Element in den list beinhaltet die Output Layers und somit ist das Nezt aufgebaut\mbox{\label{class_network_a7a4e19cdb4bf0c7ecf82baa643831492}} 
+\index{Network@{Network}!````~Network@{$\sim$Network}}
+\index{````~Network@{$\sim$Network}!Network@{Network}}
+\doxysubsubsection{$\sim$Network()}
+{\footnotesize\ttfamily Network\+::$\sim$\+Network (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+all the elements of the layer\+List array. This is necessary because the layer\+List array is dynamically allocated and contains pointers to dynamically allocated objects. If these objects are not deleted when they are no longer needed, it will cause a memory leak, which can lead to performance problems and other issues. dadurch werden die erstellte Elemente in den Layerlist freigegeben
+
+\doxysubsection{Member Function Documentation}
+\mbox{\label{class_network_a89d5386b7db307eaf12800720c0ba1cd}} 
+\index{Network@{Network}!apply\_Learned@{apply\_Learned}}
+\index{apply\_Learned@{apply\_Learned}!Network@{Network}}
+\doxysubsubsection{apply\_Learned()}
+{\footnotesize\ttfamily void Network\+::apply\+\_\+\+Learned (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+reset all the layers in the Layer\+\_\+\+List data member of the \doxyref{Network}{p.}{class_network} object starting from the second layer (index 1) and going up to the last layer (n\+\_\+\+Layers -\/ 1) 
+
+\mbox{\label{class_network_ae9881b3dbe6d8b7d06ddc5b1df3abb7d}} 
+\index{Network@{Network}!calculate\_Cost@{calculate\_Cost}}
+\index{calculate\_Cost@{calculate\_Cost}!Network@{Network}}
+\doxysubsubsection{calculate\_Cost()}
+{\footnotesize\ttfamily void Network\+::calculate\+\_\+\+Cost (\begin{DoxyParamCaption}\item[{int}]{real\+\_\+\+Answer }\end{DoxyParamCaption})}
+
+
+
+activate the neural network and calculate the outputs for all neurons 
+
+calculates the \char`\"{}cost\char`\"{} (in the sense of a measure of error) to check the network for its performance and to determine the error it makes when solving a task. This information could then be used to adjust the network and improve its performance. check up to how much output layer we have
+
+iterates through the outputs of the final layer of the neural network and keeps track of the index of the output with the highest activation value. if activation[max] $<$ activation[i] then increase max by 1
+
+if i = correct answer then Correct\+\_\+\+Answer = 1 this 1 stands for the confirmation that the answer is correct
+
+if i != correct answer then Correct\+\_\+\+Answer = 0 this 0 stands for the confirmation that the answer is wrong ~\newline
+
+
+For each output, the function sets the corresponding element of an array m\+\_\+richtige\+\_\+antwort to 1.\+0 if the output index is equal to the correct answer, and 0.\+0 otherwise. The function then updates the m\+\_\+kosten variable by adding the square of the difference between the corresponding element of m\+\_\+richtige\+\_\+antwort and the activation value for the output, multiplied by 0.\+5. cost = ((Correct\+\_\+\+Answer[i] -\/ Layer\+\_\+\+List[n\+\_\+\+Layers -\/1]. a[i])$^\wedge$2) Y = 1 / (1 + e$^\wedge$-\/(∑ ((weight $\ast$ input) + bias)) ) = sigmod(∑(weight $\ast$ input)+bias))\mbox{\label{class_network_a85bd7bdee96f1a5fda9dce5c2fa6fa39}} 
+\index{Network@{Network}!dSigmoddX@{dSigmoddX}}
+\index{dSigmoddX@{dSigmoddX}!Network@{Network}}
+\doxysubsubsection{dSigmoddX()}
+{\footnotesize\ttfamily float Network\+::d\+SigmoddX (\begin{DoxyParamCaption}\item[{float}]{x }\end{DoxyParamCaption})}
+
+\mbox{\label{class_network_ad58b5ce7b07ad7f2459f66ac06da72c4}} 
+\index{Network@{Network}!get\_Hidden\_Count@{get\_Hidden\_Count}}
+\index{get\_Hidden\_Count@{get\_Hidden\_Count}!Network@{Network}}
+\doxysubsubsection{get\_Hidden\_Count()}
+{\footnotesize\ttfamily int Network\+::get\+\_\+\+Hidden\+\_\+\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\label{class_network_ae7cd0faae7976e94ef98c6a74b5a475b}} 
+\index{Network@{Network}!getAnswer@{getAnswer}}
+\index{getAnswer@{getAnswer}!Network@{Network}}
+\doxysubsubsection{getAnswer()}
+{\footnotesize\ttfamily int Network\+::get\+Answer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\label{class_network_aa7658fc579d86536e99bb36d5fcb9a76}} 
+\index{Network@{Network}!getCost@{getCost}}
+\index{getCost@{getCost}!Network@{Network}}
+\doxysubsubsection{getCost()}
+{\footnotesize\ttfamily float Network\+::get\+Cost (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\label{class_network_adfe07a68e3b07f37d282bcb6f9098e7a}} 
+\index{Network@{Network}!isCorrect@{isCorrect}}
+\index{isCorrect@{isCorrect}!Network@{Network}}
+\doxysubsubsection{isCorrect()}
+{\footnotesize\ttfamily int Network\+::is\+Correct (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\label{class_network_a7d210da71d69ba03bd02f4b19eecc5ec}} 
+\index{Network@{Network}!learn@{learn}}
+\index{learn@{learn}!Network@{Network}}
+\doxysubsubsection{learn()}
+{\footnotesize\ttfamily virtual void Network\+::learn (\begin{DoxyParamCaption}\item[{float}]{learn\+\_\+\+Rate,  }\item[{int}]{batch\+\_\+\+Size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \textbf{ simd\+\_\+and\+\_\+parallel} \doxyref{}{p.}{classsimd__and__parallel_a61250eb1a055794e2e64d716dccb9680}, \textbf{ parallel} \doxyref{}{p.}{classparallel_af79ea4dbcfe8bbba85d8451fcbddb4ed}, \textbf{ simd} \doxyref{}{p.}{classsimd_a245e26e76e44ab0827319322ded9f2ff}, and \textbf{ sisd} \doxyref{}{p.}{classsisd_a23aff4c88151f0489033a71681d3f809}.
+
+\mbox{\label{class_network_a9f67386f1690ca0aa26b1a93f4323b54}} 
+\index{Network@{Network}!set\_Input\_Value@{set\_Input\_Value}}
+\index{set\_Input\_Value@{set\_Input\_Value}!Network@{Network}}
+\doxysubsubsection{set\_Input\_Value()}
+{\footnotesize\ttfamily void Network\+::set\+\_\+\+Input\+\_\+\+Value (\begin{DoxyParamCaption}\item[{float}]{input\+\_\+value,  }\item[{int}]{index }\end{DoxyParamCaption})}
+
+
+
+set the input value for a specific neuron in the network before the network is activated 
+
+OR //eliminates the need for an index variable and simply iterates over all elements of layer\+List, deleting each one in turn for (Layer$\ast$ layer \+: Layer\+\_\+\+List) \{ delete layer; \} \mbox{\label{class_network_a4165e439ece10a42f5c0a3d28c15787b}} 
+\index{Network@{Network}!sigmod@{sigmod}}
+\index{sigmod@{sigmod}!Network@{Network}}
+\doxysubsubsection{sigmod()}
+{\footnotesize\ttfamily float Network\+::sigmod (\begin{DoxyParamCaption}\item[{float}]{x }\end{DoxyParamCaption})}
+
+\mbox{\label{class_network_a4dc109a7dee5d42bafc1b973cf5bc2ae}} 
+\index{Network@{Network}!think@{think}}
+\index{think@{think}!Network@{Network}}
+\doxysubsubsection{think()}
+{\footnotesize\ttfamily virtual void Network\+::think (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \textbf{ parallel} \doxyref{}{p.}{classparallel_a7ae35d8282471bc3186d64cd943f8666}, \textbf{ simd} \doxyref{}{p.}{classsimd_ade85cec67bea584d5e2877a48c2816f1}, \textbf{ simd\+\_\+and\+\_\+parallel} \doxyref{}{p.}{classsimd__and__parallel_a7b7815217bb0258a09a97160e720f74b}, and \textbf{ sisd} \doxyref{}{p.}{classsisd_afa5252e9a6a95961946dd377fdd18aac}.
+
+\mbox{\label{class_network_a8a022cbf5b568c77c114eb2d57b96426}} 
+\index{Network@{Network}!transform\_Prime@{transform\_Prime}}
+\index{transform\_Prime@{transform\_Prime}!Network@{Network}}
+\doxysubsubsection{transform\_Prime()}
+{\footnotesize\ttfamily float Network\+::transform\+\_\+\+Prime (\begin{DoxyParamCaption}\item[{float}]{input\+Value }\end{DoxyParamCaption})}
+
+implementing backpropagation, a standard algorithm for training neural network 
+
+\doxysubsection{Member Data Documentation}
+\mbox{\label{class_network_a6598b1ae79cc398a204e636289014b40}} 
+\index{Network@{Network}!correct\_Answer@{correct\_Answer}}
+\index{correct\_Answer@{correct\_Answer}!Network@{Network}}
+\doxysubsubsection{correct\_Answer}
+{\footnotesize\ttfamily float$\ast$ Network\+::correct\+\_\+\+Answer\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\label{class_network_aa79f0f28f056760157ef27311404c416}} 
+\index{Network@{Network}!layer\_List@{layer\_List}}
+\index{layer\_List@{layer\_List}!Network@{Network}}
+\doxysubsubsection{layer\_List}
+{\footnotesize\ttfamily \textbf{ Layer}$\ast$$\ast$ Network\+::layer\+\_\+\+List\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\label{class_network_a0bb8b9b34e39ac3659b1c19cc47b2154}} 
+\index{Network@{Network}!n\_Hiddens@{n\_Hiddens}}
+\index{n\_Hiddens@{n\_Hiddens}!Network@{Network}}
+\doxysubsubsection{n\_Hiddens}
+{\footnotesize\ttfamily int Network\+::n\+\_\+\+Hiddens \{\}\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\label{class_network_a07cf33ecbc9118e233d1f1b74c56f975}} 
+\index{Network@{Network}!n\_Layers@{n\_Layers}}
+\index{n\_Layers@{n\_Layers}!Network@{Network}}
+\doxysubsubsection{n\_Layers}
+{\footnotesize\ttfamily int Network\+::n\+\_\+\+Layers \{\}\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\label{class_network_a4f5b0d8fe96afd0e6e38ee0310d52960}} 
+\index{Network@{Network}!n\_Outputs@{n\_Outputs}}
+\index{n\_Outputs@{n\_Outputs}!Network@{Network}}
+\doxysubsubsection{n\_Outputs}
+{\footnotesize\ttfamily int Network\+::n\+\_\+\+Outputs \{\}\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\textbf{ network.\+h}\item 
+\textbf{ network.\+cpp}\end{DoxyCompactItemize}

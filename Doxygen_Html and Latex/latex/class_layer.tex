@@ -1,0 +1,279 @@
+\doxysection{Layer Class Reference}
+\label{class_layer}\index{Layer@{Layer}}
+
+
+{\ttfamily \#include $<$layer.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Layer} (int n, int w)
+\begin{DoxyCompactList}\small\item\em implementation a construct \end{DoxyCompactList}\item 
+void \textbf{ reset} ()
+\begin{DoxyCompactList}\small\item\em Reset values of these arrays to 0 to update the neural network weights and biases. to ensure that the updated values of the weights and biases are calculated correctly. \end{DoxyCompactList}\item 
+void \textbf{ Apply\+\_\+\+Learned\+\_\+\+And\+\_\+\+Reset} ()
+\item 
+void \textbf{ randomize} ()
+\item 
+void \textbf{ fire} (\textbf{ Layer} const $\ast$prev\+Layer)
+\begin{DoxyCompactList}\small\item\em Forwardpropagation. \end{DoxyCompactList}\item 
+void \textbf{ moved\+CdW} (float value, int neuron, int \textbf{ weight})
+\begin{DoxyCompactList}\small\item\em activation function Sigmoid function\+:This function is often called the sigmoid function, and it maps values from the range (-\/infinity, infinity) to the range (0, 1). \end{DoxyCompactList}\item 
+void \textbf{ moved\+CdB} (float value, int neuron)
+\begin{DoxyCompactList}\small\item\em the training process for a neural network, to adjust the changes to the biases based on some learning rule or optimization algorithm \end{DoxyCompactList}\item 
+void \textbf{ moved\+CdA} (float value, int neuron)
+\begin{DoxyCompactList}\small\item\em the changes to the activations based on some learning rule or optimization algorithm \end{DoxyCompactList}\item 
+void \textbf{ input\+Activation} (float value, int neuron)
+\begin{DoxyCompactList}\small\item\em This function may be used to provide input to the neural network, by setting the activation values for the input neurons to the input values for the network. \end{DoxyCompactList}\item 
+float \textbf{ get\+Activation} (int neuron) const
+\begin{DoxyCompactList}\small\item\em the output of the neural network, by getting the activation values for the output neurons after the network has been activated with some input. \end{DoxyCompactList}\item 
+int \textbf{ get\+Num\+Neurons} () const
+\begin{DoxyCompactList}\small\item\em the size of the layer, for example, to loop over the neurons in the layer or to allocate storage for the activations or weights of the layer \end{DoxyCompactList}\item 
+void \textbf{ inputd\+CdA} (float value, int neuron)
+\begin{DoxyCompactList}\small\item\em the error gradient for the activations of the neurons in the layer, as part of the backpropagation algorithm for training a neural network \end{DoxyCompactList}\item 
+float \textbf{ getd\+CdA} (int neuron) const
+\begin{DoxyCompactList}\small\item\em retrieve the error gradient for the activations of the neurons in the layer, as part of the backpropagation algorithm for training a neural network \end{DoxyCompactList}\item 
+float \textbf{ getZ} (int neuron) const
+\item 
+float \textbf{ get\+Weight} (int neuron\+Index, int weight\+Index) const
+\begin{DoxyCompactList}\small\item\em the current values of the weights in the neural network, for example, to inspect the learned weights or to save the weights to a file \end{DoxyCompactList}\item 
+float \textbf{ move\+Weight} (float value, int neuron\+Index, int weight\+Index)
+\begin{DoxyCompactList}\small\item\em adjust the weights of the neural network as part of the training process \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \textbf{ neuron\+\_\+\+Count}
+\item 
+int \textbf{ weight\+\_\+\+Count}
+\item 
+std\+::vector$<$ float $>$ \textbf{ a}
+\item 
+std\+::vector$<$ float $>$ \textbf{ z}
+\item 
+std\+::vector$<$ std\+::vector$<$ float $>$ $>$ \textbf{ weight}
+\item 
+std\+::vector$<$ float $>$ \textbf{ bias}
+\item 
+std\+::vector$<$ float $>$ \textbf{ d\+CdA}
+\item 
+std\+::vector$<$ std\+::vector$<$ float $>$ $>$ \textbf{ d\+CdW}
+\item 
+std\+::vector$<$ float $>$ \textbf{ d\+CdB}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\label{class_layer_ab2bd1a941322f6e1b291ee8be8788065}} 
+\index{Layer@{Layer}!Layer@{Layer}}
+\index{Layer@{Layer}!Layer@{Layer}}
+\doxysubsubsection{Layer()}
+{\footnotesize\ttfamily Layer\+::\+Layer (\begin{DoxyParamCaption}\item[{int}]{n,  }\item[{int}]{w }\end{DoxyParamCaption})}
+
+
+
+implementation a construct 
+
+Assignment of vectors\+Size the number of neurons The size of the array is determined by the \char`\"{}neuron\+Count\char`\"{} variable, which is the number of neurons in the network Within the loop, a list of weights is created for each neuron, also specified by the weight\+Count variable. The size of the list of weights thus corresponds to the number of inputs for the neuron.
+
+\doxysubsection{Member Function Documentation}
+\mbox{\label{class_layer_a9153b95374b575a82b442d1e8159aa88}} 
+\index{Layer@{Layer}!Apply\_Learned\_And\_Reset@{Apply\_Learned\_And\_Reset}}
+\index{Apply\_Learned\_And\_Reset@{Apply\_Learned\_And\_Reset}!Layer@{Layer}}
+\doxysubsubsection{Apply\_Learned\_And\_Reset()}
+{\footnotesize\ttfamily void Layer\+::\+Apply\+\_\+\+Learned\+\_\+\+And\+\_\+\+Reset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\label{class_layer_a48abe53510d278444af73014bc6ac223}} 
+\index{Layer@{Layer}!fire@{fire}}
+\index{fire@{fire}!Layer@{Layer}}
+\doxysubsubsection{fire()}
+{\footnotesize\ttfamily void Layer\+::fire (\begin{DoxyParamCaption}\item[{\textbf{ Layer} const $\ast$}]{prev\+Layer }\end{DoxyParamCaption})}
+
+
+
+Forwardpropagation. 
+
+\mbox{\label{class_layer_a7bb1b68580e6fc17a00154dd9e3e4b05}} 
+\index{Layer@{Layer}!getActivation@{getActivation}}
+\index{getActivation@{getActivation}!Layer@{Layer}}
+\doxysubsubsection{getActivation()}
+{\footnotesize\ttfamily float Layer\+::get\+Activation (\begin{DoxyParamCaption}\item[{int}]{neuron }\end{DoxyParamCaption}) const}
+
+
+
+the output of the neural network, by getting the activation values for the output neurons after the network has been activated with some input. 
+
+\mbox{\label{class_layer_a5aa412c8d059a9f5477e1f873b567265}} 
+\index{Layer@{Layer}!getdCdA@{getdCdA}}
+\index{getdCdA@{getdCdA}!Layer@{Layer}}
+\doxysubsubsection{getdCdA()}
+{\footnotesize\ttfamily float Layer\+::getd\+CdA (\begin{DoxyParamCaption}\item[{int}]{neuron }\end{DoxyParamCaption}) const}
+
+
+
+retrieve the error gradient for the activations of the neurons in the layer, as part of the backpropagation algorithm for training a neural network 
+
+\mbox{\label{class_layer_a67da730275c3f4998e7ae79c3ba9dd9f}} 
+\index{Layer@{Layer}!getNumNeurons@{getNumNeurons}}
+\index{getNumNeurons@{getNumNeurons}!Layer@{Layer}}
+\doxysubsubsection{getNumNeurons()}
+{\footnotesize\ttfamily int Layer\+::get\+Num\+Neurons (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+the size of the layer, for example, to loop over the neurons in the layer or to allocate storage for the activations or weights of the layer 
+
+\mbox{\label{class_layer_acd2e2f02f5386e3f29b054ded32a227d}} 
+\index{Layer@{Layer}!getWeight@{getWeight}}
+\index{getWeight@{getWeight}!Layer@{Layer}}
+\doxysubsubsection{getWeight()}
+{\footnotesize\ttfamily float Layer\+::get\+Weight (\begin{DoxyParamCaption}\item[{int}]{neuron\+Index,  }\item[{int}]{weight\+Index }\end{DoxyParamCaption}) const}
+
+
+
+the current values of the weights in the neural network, for example, to inspect the learned weights or to save the weights to a file 
+
+\mbox{\label{class_layer_a7079b752d137300ab8a20c7e65c58c3d}} 
+\index{Layer@{Layer}!getZ@{getZ}}
+\index{getZ@{getZ}!Layer@{Layer}}
+\doxysubsubsection{getZ()}
+{\footnotesize\ttfamily float Layer\+::getZ (\begin{DoxyParamCaption}\item[{int}]{neuron }\end{DoxyParamCaption}) const}
+
+\mbox{\label{class_layer_aa773c9e8dfe1821a5fad04fc65d8e40e}} 
+\index{Layer@{Layer}!inputActivation@{inputActivation}}
+\index{inputActivation@{inputActivation}!Layer@{Layer}}
+\doxysubsubsection{inputActivation()}
+{\footnotesize\ttfamily void Layer\+::input\+Activation (\begin{DoxyParamCaption}\item[{float}]{value,  }\item[{int}]{neuron }\end{DoxyParamCaption})}
+
+
+
+This function may be used to provide input to the neural network, by setting the activation values for the input neurons to the input values for the network. 
+
+\mbox{\label{class_layer_a65805500a98dcc695e6f07582610fb54}} 
+\index{Layer@{Layer}!inputdCdA@{inputdCdA}}
+\index{inputdCdA@{inputdCdA}!Layer@{Layer}}
+\doxysubsubsection{inputdCdA()}
+{\footnotesize\ttfamily void Layer\+::inputd\+CdA (\begin{DoxyParamCaption}\item[{float}]{value,  }\item[{int}]{neuron }\end{DoxyParamCaption})}
+
+
+
+the error gradient for the activations of the neurons in the layer, as part of the backpropagation algorithm for training a neural network 
+
+\mbox{\label{class_layer_a5d25c5359d37fc827bbb687b230b3dff}} 
+\index{Layer@{Layer}!movedCdA@{movedCdA}}
+\index{movedCdA@{movedCdA}!Layer@{Layer}}
+\doxysubsubsection{movedCdA()}
+{\footnotesize\ttfamily void Layer\+::moved\+CdA (\begin{DoxyParamCaption}\item[{float}]{value,  }\item[{int}]{neuron }\end{DoxyParamCaption})}
+
+
+
+the changes to the activations based on some learning rule or optimization algorithm 
+
+\mbox{\label{class_layer_a335ead28eae82e3a8c5d909104dfb4ea}} 
+\index{Layer@{Layer}!movedCdB@{movedCdB}}
+\index{movedCdB@{movedCdB}!Layer@{Layer}}
+\doxysubsubsection{movedCdB()}
+{\footnotesize\ttfamily void Layer\+::moved\+CdB (\begin{DoxyParamCaption}\item[{float}]{value,  }\item[{int}]{neuron }\end{DoxyParamCaption})}
+
+
+
+the training process for a neural network, to adjust the changes to the biases based on some learning rule or optimization algorithm 
+
+\mbox{\label{class_layer_aac8be459e45cc39631a409795fa2c30a}} 
+\index{Layer@{Layer}!movedCdW@{movedCdW}}
+\index{movedCdW@{movedCdW}!Layer@{Layer}}
+\doxysubsubsection{movedCdW()}
+{\footnotesize\ttfamily void Layer\+::moved\+CdW (\begin{DoxyParamCaption}\item[{float}]{value,  }\item[{int}]{neuron,  }\item[{int}]{weight }\end{DoxyParamCaption})}
+
+
+
+activation function Sigmoid function\+:This function is often called the sigmoid function, and it maps values from the range (-\/infinity, infinity) to the range (0, 1). 
+
+the training process for a neural network, to adjust the changes to the weights based on some learning rule or optimization algorithm. the change value for a particular weight.\mbox{\label{class_layer_a33e41a51b4924c7597f9c11cad2f2f89}} 
+\index{Layer@{Layer}!moveWeight@{moveWeight}}
+\index{moveWeight@{moveWeight}!Layer@{Layer}}
+\doxysubsubsection{moveWeight()}
+{\footnotesize\ttfamily float Layer\+::move\+Weight (\begin{DoxyParamCaption}\item[{float}]{value,  }\item[{int}]{neuron\+Index,  }\item[{int}]{weight\+Index }\end{DoxyParamCaption})}
+
+
+
+adjust the weights of the neural network as part of the training process 
+
+\mbox{\label{class_layer_a92696091241e1eb5546b5ab5a509ae1b}} 
+\index{Layer@{Layer}!randomize@{randomize}}
+\index{randomize@{randomize}!Layer@{Layer}}
+\doxysubsubsection{randomize()}
+{\footnotesize\ttfamily void Layer\+::randomize (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+initialize the weights and biases of the \char`\"{}\+Layer\char`\"{} object to random values \mbox{\label{class_layer_aca5ce29709a6df2c52f56a6fb44de205}} 
+\index{Layer@{Layer}!reset@{reset}}
+\index{reset@{reset}!Layer@{Layer}}
+\doxysubsubsection{reset()}
+{\footnotesize\ttfamily void Layer\+::reset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Reset values of these arrays to 0 to update the neural network weights and biases. to ensure that the updated values of the weights and biases are calculated correctly. 
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\label{class_layer_a2c856dd601d9f76ef59a6fd6d0f68c8f}} 
+\index{Layer@{Layer}!a@{a}}
+\index{a@{a}!Layer@{Layer}}
+\doxysubsubsection{a}
+{\footnotesize\ttfamily std\+::vector$<$float$>$ Layer\+::a}
+
+\mbox{\label{class_layer_a9f06c4d305b617885cf50fddf81aa6d4}} 
+\index{Layer@{Layer}!bias@{bias}}
+\index{bias@{bias}!Layer@{Layer}}
+\doxysubsubsection{bias}
+{\footnotesize\ttfamily std\+::vector$<$float$>$ Layer\+::bias}
+
+\mbox{\label{class_layer_acacdc440cd1f0597eb2a989b50de4b82}} 
+\index{Layer@{Layer}!dCdA@{dCdA}}
+\index{dCdA@{dCdA}!Layer@{Layer}}
+\doxysubsubsection{dCdA}
+{\footnotesize\ttfamily std\+::vector$<$float$>$ Layer\+::d\+CdA}
+
+\mbox{\label{class_layer_a5a6fcb33f176dabd08ebc7255c473c95}} 
+\index{Layer@{Layer}!dCdB@{dCdB}}
+\index{dCdB@{dCdB}!Layer@{Layer}}
+\doxysubsubsection{dCdB}
+{\footnotesize\ttfamily std\+::vector$<$float$>$ Layer\+::d\+CdB}
+
+\mbox{\label{class_layer_a537243919d7604410adf6e58209fda10}} 
+\index{Layer@{Layer}!dCdW@{dCdW}}
+\index{dCdW@{dCdW}!Layer@{Layer}}
+\doxysubsubsection{dCdW}
+{\footnotesize\ttfamily std\+::vector$<$std\+::vector$<$float$>$ $>$ Layer\+::d\+CdW}
+
+\mbox{\label{class_layer_ab43b9f7fb954ca05e9f44883065bdbe3}} 
+\index{Layer@{Layer}!neuron\_Count@{neuron\_Count}}
+\index{neuron\_Count@{neuron\_Count}!Layer@{Layer}}
+\doxysubsubsection{neuron\_Count}
+{\footnotesize\ttfamily int Layer\+::neuron\+\_\+\+Count}
+
+\mbox{\label{class_layer_a166bfb7dbc3b285fa94756127f2dee24}} 
+\index{Layer@{Layer}!weight@{weight}}
+\index{weight@{weight}!Layer@{Layer}}
+\doxysubsubsection{weight}
+{\footnotesize\ttfamily std\+::vector$<$std\+::vector$<$float$>$ $>$ Layer\+::weight}
+
+\mbox{\label{class_layer_a13b037501ae87ea5ac91fcca8422e676}} 
+\index{Layer@{Layer}!weight\_Count@{weight\_Count}}
+\index{weight\_Count@{weight\_Count}!Layer@{Layer}}
+\doxysubsubsection{weight\_Count}
+{\footnotesize\ttfamily int Layer\+::weight\+\_\+\+Count}
+
+\mbox{\label{class_layer_afb2f99ee8b0e5f7ca49623a512f229ac}} 
+\index{Layer@{Layer}!z@{z}}
+\index{z@{z}!Layer@{Layer}}
+\doxysubsubsection{z}
+{\footnotesize\ttfamily std\+::vector$<$float$>$ Layer\+::z}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\textbf{ layer.\+h}\item 
+\textbf{ layer.\+cpp}\end{DoxyCompactItemize}

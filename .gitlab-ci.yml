@@ -1,0 +1,38 @@
+image: debian:stretch
+stages:
+        - build
+        - test
+
+build_XOR_problem:
+    stage: build
+    tags: [Linux]       
+    before_script:
+        - apt-get update && apt-get install -y make gcc g++ wget
+
+    script:
+        - cd XOR-Problem
+        - make
+
+build_Projekt:
+    stage: build
+    tags: [Linux]
+    before_script:
+        - apt-get update && apt-get install -y make gcc g++ wget
+        - apt-get install build-essential libssl-dev --assume-yes
+        - wget https://github.com/Kitware/CMake/releases/download/v3.20.2/cmake-3.20.2.tar.gz
+        - tar -zxvf cmake-3.20.2.tar.gz
+        - cd cmake-3.20.2
+        - ./bootstrap
+        - make
+        - make install 
+        - cmake --version
+        - cd ../
+    script:
+      #  - ls -l
+      #  - mkdir build
+      #  - cd build/
+        - cd Project  
+        - cmake CmakeLists.txt
+        - make
+
+

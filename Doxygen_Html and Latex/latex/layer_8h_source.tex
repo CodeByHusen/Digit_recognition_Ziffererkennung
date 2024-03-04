@@ -1,0 +1,111 @@
+\doxysection{layer.\+h}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <cmath>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <cstdlib>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{class\ }Layer}
+\DoxyCodeLine{00011\ \{}
+\DoxyCodeLine{00012\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00017\ \ \ \ \ Layer(\textcolor{keywordtype}{int}\ n,\ \textcolor{keywordtype}{int}\ w);}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{comment}{//============================================================}}
+\DoxyCodeLine{00025\ \textcolor{comment}{}\ \ \ \ \textcolor{keywordtype}{void}\ reset();}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{comment}{//============================================================}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{void}\ Apply\_Learned\_And\_Reset();}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{void}\ randomize();}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{comment}{//============================================================}}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordtype}{void}\ fire(Layer\ \textcolor{keyword}{const}\ *prevLayer);\ \textcolor{comment}{//\ The\ function\ takes\ in\ a\ pointer\ to\ a\ previous\ layer\ (prevLayer)\ }}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{comment}{//============================================================}}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{comment}{//float\ sigmoid\_func(float\ inputValue);}}
+\DoxyCodeLine{00056\ \ \ \ \ }
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{comment}{//============================================================}}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordtype}{void}\ movedCdW(\textcolor{keywordtype}{float}\ value,\ \textcolor{keywordtype}{int}\ neuron,\ \textcolor{keywordtype}{int}\ weight);}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keywordtype}{void}\ movedCdB(\textcolor{keywordtype}{float}\ value,\ \textcolor{keywordtype}{int}\ neuron);}
+\DoxyCodeLine{00076\ \ \ \ \ }
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordtype}{void}\ movedCdA(\textcolor{keywordtype}{float}\ value,\ \textcolor{keywordtype}{int}\ neuron);}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{comment}{//============================================================}}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keywordtype}{void}\ inputActivation(\textcolor{keywordtype}{float}\ value,\ \textcolor{keywordtype}{int}\ neuron);}
+\DoxyCodeLine{00090\ \ \ \ \ }
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keywordtype}{float}\ getActivation(\textcolor{keywordtype}{int}\ neuron)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00098\ \ \ \ \ }
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{keywordtype}{int}\ getNumNeurons()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00106\ \ \ \ \ }
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{keywordtype}{void}\ inputdCdA(\textcolor{keywordtype}{float}\ value,\ \textcolor{keywordtype}{int}\ neuron);}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{keywordtype}{float}\ getdCdA(\textcolor{keywordtype}{int}\ neuron)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00119\ \ \ \ \ }
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00121\ \ \ \ \ \textcolor{keywordtype}{float}\ getZ(\textcolor{keywordtype}{int}\ neuron)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00128\ \ \ \ \ \textcolor{keywordtype}{float}\ getWeight(\textcolor{keywordtype}{int}\ neuronIndex,\ \textcolor{keywordtype}{int}\ weightIndex)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00134\ \ \ \ \ \textcolor{keywordtype}{float}\ moveWeight(\textcolor{keywordtype}{float}\ value,\ \textcolor{keywordtype}{int}\ neuronIndex,\ \textcolor{keywordtype}{int}\ weightIndex);}
+\DoxyCodeLine{00135\ }
+\DoxyCodeLine{00136\ \ \ \ \ }
+\DoxyCodeLine{00137\ \textcolor{comment}{//private:}}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00139\ \ \ \ \ \textcolor{keywordtype}{int}\ neuron\_Count;\textcolor{comment}{//\ The\ number\ of\ neurons\ passed.}}
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00141\ \ \ \ \ \textcolor{keywordtype}{int}\ weight\_Count;\textcolor{comment}{//\ The\ weight\ of\ the\ passed.}}
+\DoxyCodeLine{00142\ }
+\DoxyCodeLine{00143\ \ \ \ \ std::vector<float>\ a;\ \textcolor{comment}{//The\ activation\ vector}}
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00145\ \ \ \ \ std::vector<float>\ z;\ \textcolor{comment}{//\ The\ hidden\ layer\ behind\ the\ activation\ layer}}
+\DoxyCodeLine{00146\ }
+\DoxyCodeLine{00147\ }
+\DoxyCodeLine{00148\ \ \ \ \ std::vector<std::vector<float>>\ weight;}
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00150\ \ \ \ \ std::vector<float>\ bias;}
+\DoxyCodeLine{00151\ }
+\DoxyCodeLine{00152\ \ \ \ \ std::vector<float>\ dCdA;\textcolor{comment}{//\ derivation\ of\ cost\ function\ to\ activation\ function.}}
+\DoxyCodeLine{00153\ }
+\DoxyCodeLine{00154\ \ \ \ \ std::vector<std::vector<float>>\ dCdW;\ \textcolor{comment}{//\ derivation\ of\ cost\ function\ to\ activation\ function.}}
+\DoxyCodeLine{00155\ }
+\DoxyCodeLine{00156\ \ \ \ \ std::vector<float>\ dCdB;\ \textcolor{comment}{//\ Derivation\ of\ the\ cost\ function\ according\ to\ the\ B\ layers.}}
+\DoxyCodeLine{00157\ \};}
+\DoxyCodeLine{00158\ }
+\DoxyCodeLine{00159\ }
+\DoxyCodeLine{00160\ \textcolor{preprocessor}{\#ifndef\ PROJECT\_LAYER\_H}}
+\DoxyCodeLine{00161\ \textcolor{preprocessor}{\#define\ PROJECT\_LAYER\_H}}
+\DoxyCodeLine{00162\ }
+\DoxyCodeLine{00163\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//PROJECT\_LAYER\_H}}
+\DoxyCodeLine{00164\ }
+
+\end{DoxyCode}

@@ -1,0 +1,113 @@
+\doxysection{UI Class Reference}
+\label{class_u_i}\index{UI@{UI}}
+
+
+{\ttfamily \#include $<$UI.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ UI} ()
+\item 
+void \textbf{ read\+\_\+file} (\textbf{ Reader} \&images, \textbf{ Reader} \&lables, \textbf{ Reader} \&test\+Images, \textbf{ Reader} \&test\+Labels)
+\begin{DoxyCompactList}\small\item\em read four files of images and labels for training and testing a machine learning model The file paths are defined as hardcoded strings with a specific directory. \end{DoxyCompactList}\item 
+int \textbf{ read\+\_\+valid\+\_\+int\+\_\+input} (int small\+\_\+than, int bigger\+\_\+than)
+\item 
+\textbf{ Network} $\ast$ \textbf{ create\+Network} (int x)
+\begin{DoxyCompactList}\small\item\em defines the dimensions of the neural network. The function asks the user for the number of layers and the number of neurons per hidden layer Then, depending on the argument x passed, a specific type of network is created and returned \end{DoxyCompactList}\item 
+\textbf{ Network} $\ast$ \textbf{ wich\+\_\+construktor} (int construktor\+\_\+num, int hidden\+\_\+num)
+\begin{DoxyCompactList}\small\item\em create an object of one of four classes all derived from a common class \doxyref{Network}{p.}{class_network}\+: sisd, simd, parallel, and parallel\+\_\+and\+\_\+simd \+: sisd, simd, parallel, and parallel\+\_\+and\+\_\+simd. The number of layers (4), the number of input neurons (784), the number of neurons in a hidden layer (hidden\+Num) and the number of output neurons (10) are passed as arguments. \end{DoxyCompactList}\item 
+void \textbf{ input\+\_\+training\+\_\+parameters} (int \&mini\+\_\+batch\+\_\+size, int \&number\+\_\+of\+\_\+batches, float \&learning\+\_\+rate)
+\begin{DoxyCompactList}\small\item\em prompt the user to enter three arguments that correspond to the neural network training data 1-\/Mini-\/\+Batch Size\+: Number of training images to process per batch 2-\/Test Count\+: Number of batches to train 3-\/Lernrate\+: Faktor, um den die Gewichte nach jeder Trainingsiteration angepasst werden sollen. \end{DoxyCompactList}\item 
+void \textbf{ training} (int test\+\_\+num, int mini\+\_\+batch\+\_\+size, float learning\+\_\+rate, \textbf{ Network} \&my\+Network, \textbf{ Reader} images, \textbf{ Reader} labels, int time\+\_\+ortest, int which\+\_\+file=0)
+\begin{DoxyCompactList}\small\item\em trains a neural network on a set of data by dividing it into mini-\/batches For each mini-\/batch, it retrieves the input data (images) and the corresponding target data (labels) and feeds the input data into the network to get the network\textquotesingle{}s output t then calculates the cost (error) of the output with respect to the target data and updates the network\textquotesingle{}s weights using backpropagation with a specified learning rate This process is repeated for each mini-\/batch in the set of data. \end{DoxyCompactList}\item 
+void \textbf{ netzwerk\+\_\+result\+\_\+check} (\textbf{ Reader} test\+Images, \textbf{ Reader} test\+Labels, \textbf{ Network} \&my\+Network, int time\+\_\+ortest, int whichfile=0)
+\begin{DoxyCompactList}\small\item\em check the accuracy of a given neural network using set of test images and corresponding labels The function can be run in three modes depending on the value of time\+\_\+ortest 1-\/If time\+\_\+ortest is 1, the function calculates the overall accuracy of the network and saves it to a file (specified by whichfile) in the format \char`\"{}\+X\%\char`\"{} \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\label{class_u_i_a675985a56b5e87ebdc8e5884b9f2ee09}} 
+\index{UI@{UI}!UI@{UI}}
+\index{UI@{UI}!UI@{UI}}
+\doxysubsubsection{UI()}
+{\footnotesize\ttfamily UI\+::\+UI (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\label{class_u_i_a54e241b2f8ab391a5ba3ded221c899c9}} 
+\index{UI@{UI}!createNetwork@{createNetwork}}
+\index{createNetwork@{createNetwork}!UI@{UI}}
+\doxysubsubsection{createNetwork()}
+{\footnotesize\ttfamily \textbf{ Network} $\ast$ UI\+::create\+Network (\begin{DoxyParamCaption}\item[{int}]{x }\end{DoxyParamCaption})}
+
+
+
+defines the dimensions of the neural network. The function asks the user for the number of layers and the number of neurons per hidden layer Then, depending on the argument x passed, a specific type of network is created and returned 
+
+\mbox{\label{class_u_i_a750b8fdf303a76516087daf8ca773cb1}} 
+\index{UI@{UI}!input\_training\_parameters@{input\_training\_parameters}}
+\index{input\_training\_parameters@{input\_training\_parameters}!UI@{UI}}
+\doxysubsubsection{input\_training\_parameters()}
+{\footnotesize\ttfamily void UI\+::input\+\_\+training\+\_\+parameters (\begin{DoxyParamCaption}\item[{int \&}]{mini\+\_\+batch\+\_\+size,  }\item[{int \&}]{number\+\_\+of\+\_\+batches,  }\item[{float \&}]{learning\+\_\+rate }\end{DoxyParamCaption})}
+
+
+
+prompt the user to enter three arguments that correspond to the neural network training data 1-\/Mini-\/\+Batch Size\+: Number of training images to process per batch 2-\/Test Count\+: Number of batches to train 3-\/Lernrate\+: Faktor, um den die Gewichte nach jeder Trainingsiteration angepasst werden sollen. 
+
+\mbox{\label{class_u_i_ac65d8b2bdf8236d48e51c9bcc9d4de6f}} 
+\index{UI@{UI}!netzwerk\_result\_check@{netzwerk\_result\_check}}
+\index{netzwerk\_result\_check@{netzwerk\_result\_check}!UI@{UI}}
+\doxysubsubsection{netzwerk\_result\_check()}
+{\footnotesize\ttfamily void UI\+::netzwerk\+\_\+result\+\_\+check (\begin{DoxyParamCaption}\item[{\textbf{ Reader}}]{test\+Images,  }\item[{\textbf{ Reader}}]{test\+Labels,  }\item[{\textbf{ Network} \&}]{my\+Network,  }\item[{int}]{time\+\_\+ortest,  }\item[{int}]{whichfile = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+
+
+check the accuracy of a given neural network using set of test images and corresponding labels The function can be run in three modes depending on the value of time\+\_\+ortest 1-\/If time\+\_\+ortest is 1, the function calculates the overall accuracy of the network and saves it to a file (specified by whichfile) in the format \char`\"{}\+X\%\char`\"{} 
+
+2-\/If time\+\_\+ortest is 2, the function displays each test image and the corresponding network output, as well as the accumulated accuracy after each test.
+
+3-\/If time\+\_\+ortest is 3, the same as mode 2, but with a 2 second delay before the first test and a 1/10 second delay between subsequent tests. \mbox{\label{class_u_i_a3dd75c334ab05624e1fa5b195cce1f0e}} 
+\index{UI@{UI}!read\_file@{read\_file}}
+\index{read\_file@{read\_file}!UI@{UI}}
+\doxysubsubsection{read\_file()}
+{\footnotesize\ttfamily void UI\+::read\+\_\+file (\begin{DoxyParamCaption}\item[{\textbf{ Reader} \&}]{images,  }\item[{\textbf{ Reader} \&}]{labels,  }\item[{\textbf{ Reader} \&}]{test\+Images,  }\item[{\textbf{ Reader} \&}]{test\+Labels }\end{DoxyParamCaption})}
+
+
+
+read four files of images and labels for training and testing a machine learning model The file paths are defined as hardcoded strings with a specific directory. 
+
+\mbox{\label{class_u_i_a9e5b7fab8213a04b135bba8e4921e834}} 
+\index{UI@{UI}!read\_valid\_int\_input@{read\_valid\_int\_input}}
+\index{read\_valid\_int\_input@{read\_valid\_int\_input}!UI@{UI}}
+\doxysubsubsection{read\_valid\_int\_input()}
+{\footnotesize\ttfamily int UI\+::read\+\_\+valid\+\_\+int\+\_\+input (\begin{DoxyParamCaption}\item[{int}]{small\+\_\+than,  }\item[{int}]{bigger\+\_\+than }\end{DoxyParamCaption})}
+
+\mbox{\label{class_u_i_af1a479932a82d29d91cae7b8c6f90ebe}} 
+\index{UI@{UI}!training@{training}}
+\index{training@{training}!UI@{UI}}
+\doxysubsubsection{training()}
+{\footnotesize\ttfamily void UI\+::training (\begin{DoxyParamCaption}\item[{int}]{test\+\_\+num,  }\item[{int}]{mini\+\_\+batch\+\_\+size,  }\item[{float}]{learning\+\_\+rate,  }\item[{\textbf{ Network} \&}]{my\+Network,  }\item[{\textbf{ Reader}}]{images,  }\item[{\textbf{ Reader}}]{labels,  }\item[{int}]{time\+\_\+ortest,  }\item[{int}]{which\+\_\+file = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+
+
+trains a neural network on a set of data by dividing it into mini-\/batches For each mini-\/batch, it retrieves the input data (images) and the corresponding target data (labels) and feeds the input data into the network to get the network\textquotesingle{}s output t then calculates the cost (error) of the output with respect to the target data and updates the network\textquotesingle{}s weights using backpropagation with a specified learning rate This process is repeated for each mini-\/batch in the set of data. 
+
+The function also calculates the time taken for each step of the process and outputs the accuracy of each mini-\/batch and the overall cost If the time\+\_\+ortest argument is 1, the function saves the time taken and other parameters to a specified file. If the time\+\_\+ortest argument is 2, the function outputs the accuracy and cost of each mini-\/batch. Dadurch stzen wir den imageindex auf die nächste Bild in der For Loop
+
+Wir speichern Ein Bild in den ersten Element in den Layers index und vorallem in den vector a von den \doxyref{Layer}{p.}{class_layer} Layer\+\_\+list[0]. Bei jedes Schleifen Durchlauf der obige Schlife wird ein neues Bild in den Index a gespeichert. jedes Bild besteht aus 784 Ziffern wobei die Höhe und Breite 28 ist und damit 28 $\ast$ 28 = 784 pixel Es ist wichtig zu wissen, dass die Zahlen in den aus 0 und eine zahl zwischen 0 und 1 steht. die Ziffern werden durch Zahlen die nicht 0 sind dar gestellt\mbox{\label{class_u_i_a58c3ba108849ae99f520f0d53fe47d17}} 
+\index{UI@{UI}!wich\_construktor@{wich\_construktor}}
+\index{wich\_construktor@{wich\_construktor}!UI@{UI}}
+\doxysubsubsection{wich\_construktor()}
+{\footnotesize\ttfamily \textbf{ Network} $\ast$ UI\+::wich\+\_\+construktor (\begin{DoxyParamCaption}\item[{int}]{construktor\+\_\+num,  }\item[{int}]{hidden\+\_\+num }\end{DoxyParamCaption})}
+
+
+
+create an object of one of four classes all derived from a common class \doxyref{Network}{p.}{class_network}\+: sisd, simd, parallel, and parallel\+\_\+and\+\_\+simd \+: sisd, simd, parallel, and parallel\+\_\+and\+\_\+simd. The number of layers (4), the number of input neurons (784), the number of neurons in a hidden layer (hidden\+Num) and the number of output neurons (10) are passed as arguments. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\textbf{ UI.\+h}\item 
+\textbf{ UI.\+cpp}\end{DoxyCompactItemize}
